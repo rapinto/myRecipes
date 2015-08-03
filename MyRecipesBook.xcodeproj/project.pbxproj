@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64F991841B6F8DB400F0DC06 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F991821B6F8DB400F0DC06 /* HomeViewController.m */; };
+		64F991851B6F8DB400F0DC06 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F991831B6F8DB400F0DC06 /* HomeViewController.xib */; };
 		796DBF781B6E050100A58967 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DBF771B6E050100A58967 /* AppDelegate.m */; };
-		796DBF841B6E050100A58967 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796DBF821B6E050100A58967 /* Main.storyboard */; };
 		796DBF861B6E050100A58967 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 796DBF851B6E050100A58967 /* Images.xcassets */; };
 		796DBF891B6E050100A58967 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796DBF871B6E050100A58967 /* LaunchScreen.xib */; };
 		796DBF951B6E050100A58967 /* MyRecipesBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DBF941B6E050100A58967 /* MyRecipesBookTests.m */; };
-		796DBFA21B6E052700A58967 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DBF9E1B6E052700A58967 /* MasterViewController.m */; };
 		796DBFA31B6E052700A58967 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DBFA01B6E052700A58967 /* DetailViewController.m */; };
 		796DBFAC1B6E05E000A58967 /* NewRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DBFAA1B6E05E000A58967 /* NewRecipeViewController.m */; };
 		796DBFAD1B6E05E000A58967 /* NewRecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796DBFAB1B6E05E000A58967 /* NewRecipeViewController.xib */; };
@@ -42,17 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64F991811B6F8DB400F0DC06 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		64F991821B6F8DB400F0DC06 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		64F991831B6F8DB400F0DC06 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		796DBF6F1B6E050100A58967 /* MyRecipesBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipesBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796DBF761B6E050100A58967 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		796DBF771B6E050100A58967 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		796DBF831B6E050100A58967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		796DBF851B6E050100A58967 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		796DBF881B6E050100A58967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		796DBF8E1B6E050100A58967 /* MyRecipesBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRecipesBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		796DBF931B6E050100A58967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796DBF941B6E050100A58967 /* MyRecipesBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRecipesBookTests.m; sourceTree = "<group>"; };
-		796DBF9E1B6E052700A58967 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = Class/MasterViewController.m; sourceTree = "<group>"; };
-		796DBF9F1B6E052700A58967 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = Class/MasterViewController.h; sourceTree = "<group>"; };
 		796DBFA01B6E052700A58967 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Class/DetailViewController.m; sourceTree = "<group>"; };
 		796DBFA11B6E052700A58967 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Class/DetailViewController.h; sourceTree = "<group>"; };
 		796DBFA91B6E05E000A58967 /* NewRecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewRecipeViewController.h; path = Class/NewRecipe/NewRecipeViewController.h; sourceTree = "<group>"; };
@@ -102,6 +102,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64F9917A1B6F8A8C00F0DC06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = Class/NewRecipe/View;
+			sourceTree = "<group>";
+		};
+		64F9917B1B6F8D4600F0DC06 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				64F991811B6F8DB400F0DC06 /* HomeViewController.h */,
+				64F991821B6F8DB400F0DC06 /* HomeViewController.m */,
+				64F991831B6F8DB400F0DC06 /* HomeViewController.xib */,
+			);
+			name = Home;
+			path = Class/Home;
+			sourceTree = "<group>";
+		};
 		796DBF661B6E050100A58967 = {
 			isa = PBXGroup;
 			children = (
@@ -126,14 +145,12 @@
 		796DBF711B6E050100A58967 /* MyRecipesBook */ = {
 			isa = PBXGroup;
 			children = (
-				796DBFA81B6E058200A58967 /* NewRecipe */,
 				796DBF761B6E050100A58967 /* AppDelegate.h */,
 				796DBF771B6E050100A58967 /* AppDelegate.m */,
-				796DBF9F1B6E052700A58967 /* MasterViewController.h */,
-				796DBF9E1B6E052700A58967 /* MasterViewController.m */,
+				64F9917B1B6F8D4600F0DC06 /* Home */,
+				796DBFA81B6E058200A58967 /* NewRecipe */,
 				796DBFA11B6E052700A58967 /* DetailViewController.h */,
 				796DBFA01B6E052700A58967 /* DetailViewController.m */,
-				796DBF821B6E050100A58967 /* Main.storyboard */,
 				796DBF851B6E050100A58967 /* Images.xcassets */,
 				796DBF871B6E050100A58967 /* LaunchScreen.xib */,
 				79DF793D1B6EB41200923545 /* SupportingFiles */,
@@ -161,6 +178,7 @@
 		796DBFA81B6E058200A58967 /* NewRecipe */ = {
 			isa = PBXGroup;
 			children = (
+				64F9917A1B6F8A8C00F0DC06 /* View */,
 				796DBFA91B6E05E000A58967 /* NewRecipeViewController.h */,
 				796DBFAA1B6E05E000A58967 /* NewRecipeViewController.m */,
 				796DBFAB1B6E05E000A58967 /* NewRecipeViewController.xib */,
@@ -306,11 +324,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				796DBF841B6E050100A58967 /* Main.storyboard in Resources */,
 				796DBFAD1B6E05E000A58967 /* NewRecipeViewController.xib in Resources */,
 				79DF79411B6EB41200923545 /* Info.plist in Resources */,
 				796DBF891B6E050100A58967 /* LaunchScreen.xib in Resources */,
 				796DBF861B6E050100A58967 /* Images.xcassets in Resources */,
+				64F991851B6F8DB400F0DC06 /* HomeViewController.xib in Resources */,
 				79DF793C1B6EB32500923545 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,13 +351,13 @@
 				79DF79311B6EB0AC00923545 /* Tool.m in Sources */,
 				796DBFA31B6E052700A58967 /* DetailViewController.m in Sources */,
 				79DF792E1B6EB0AC00923545 /* Recipe.m in Sources */,
+				64F991841B6F8DB400F0DC06 /* HomeViewController.m in Sources */,
 				79DF792B1B6EB0AC00923545 /* Ingredient.m in Sources */,
 				79DF792D1B6EB0AC00923545 /* MyRecipesBook.xcdatamodeld in Sources */,
 				79DF79301B6EB0AC00923545 /* SubCategory.m in Sources */,
 				79DF792F1B6EB0AC00923545 /* Step.m in Sources */,
 				79DF792A1B6EB0AC00923545 /* RecipeCategory.m in Sources */,
 				796DBFAC1B6E05E000A58967 /* NewRecipeViewController.m in Sources */,
-				796DBFA21B6E052700A58967 /* MasterViewController.m in Sources */,
 				796DBF781B6E050100A58967 /* AppDelegate.m in Sources */,
 				79DF792C1B6EB0AC00923545 /* IngredientQuantity.m in Sources */,
 			);
@@ -364,14 +382,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		796DBF821B6E050100A58967 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				796DBF831B6E050100A58967 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		796DBF871B6E050100A58967 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

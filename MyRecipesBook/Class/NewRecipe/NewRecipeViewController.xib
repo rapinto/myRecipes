@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewRecipeViewController">
             <connections>
+                <outlet property="difficultySlider" destination="yLJ-94-jeu" id="CQ3-eC-kJp"/>
+                <outlet property="dificultyLabel" destination="haX-wh-SIg" id="Lbv-da-XwN"/>
+                <outlet property="recipeTitleTextfield" destination="mfz-H9-BkK" id="kDY-ZV-dYo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +16,32 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="titre de la recette" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfz-H9-BkK">
+                    <rect key="frame" x="22" y="45" width="556" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yLJ-94-jeu">
+                    <rect key="frame" x="20" y="83" width="453" height="31"/>
+                </slider>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haX-wh-SIg">
+                    <rect key="frame" x="495" y="87" width="83" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="haX-wh-SIg" secondAttribute="trailing" constant="22" id="Lv7-tf-6Y2"/>
+                <constraint firstItem="haX-wh-SIg" firstAttribute="top" secondItem="mfz-H9-BkK" secondAttribute="bottom" constant="12" id="T9A-9i-8oZ"/>
+                <constraint firstItem="mfz-H9-BkK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="22" id="U8h-Ni-ePl"/>
+                <constraint firstItem="mfz-H9-BkK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="YoZ-KH-U9F"/>
+                <constraint firstItem="yLJ-94-jeu" firstAttribute="top" secondItem="mfz-H9-BkK" secondAttribute="bottom" constant="8" id="bW2-u2-Ai6"/>
+                <constraint firstAttribute="trailing" secondItem="mfz-H9-BkK" secondAttribute="trailing" constant="22" id="mWj-UO-8Nq"/>
+                <constraint firstItem="haX-wh-SIg" firstAttribute="leading" secondItem="yLJ-94-jeu" secondAttribute="trailing" constant="24" id="neo-nX-Wa6"/>
+            </constraints>
         </view>
     </objects>
 </document>

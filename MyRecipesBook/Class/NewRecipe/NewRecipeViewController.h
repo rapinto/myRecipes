@@ -10,4 +10,12 @@
 
 @interface NewRecipeViewController : UIViewController
 
+
+
+@property (strong, nonatomic) IBOutlet UITextField *recipeTitleTextfield;
+@property (strong, nonatomic) IBOutlet UISlider *difficultySlider;
+@property (strong, nonatomic) IBOutlet UILabel *dificultyLabel;
+
+
+
 @end

@@ -19,12 +19,18 @@
 
 
 
+#pragma mark -
+#pragma mark Object Life Cycle Methods
+
+
+
 + (Ingredient*)insertOrUpdateIngredientWithDictionary:(NSDictionary*)dictionary
                                             inContext:(NSManagedObjectContext*)context
 {
     if ([dictionary objectForKey:kname] && [[dictionary objectForKey:kname] isKindOfClass:[NSString class]])
     {
-        Ingredient* lIngredient = [Ingredient searchIngredientWithName:[dictionary valueForKey:kname]];
+        Ingredient* lIngredient = [Ingredient searchIngredientWithName:[dictionary valueForKey:kname]
+                                                             onContext:context];
         
         if (!lIngredient)
         {
@@ -43,16 +49,29 @@
 
 
 + (Ingredient*)searchIngredientWithName:(NSString*)name
+                              onContext:(NSManagedObjectContext*)context
 {
     if ([name length] == 0)
     {
         return nil;
     }
     
+    __block Ingredient* lComment = nil;
     
+    [context performBlockAndWait:^
+     {
+         NSError* error = nil;
+         NSDictionary *subDictionary = [NSDictionary dictionaryWithObjectsAndKeys:name, @"name", nil];
+         NSFetchRequest *fetchRequest = [[[context persistentStoreCoordinator] managedObjectModel] fetchRequestFromTemplateWithName:@"getIngredientByName" substitutionVariables:subDictionary];
+         NSArray* array = [context executeFetchRequest:fetchRequest error:&error];
+         
+         if([array count] > 0)
+         {
+             lComment = [array objectAtIndex:0];
+         }
+     }];
     
-    
-    return nil;
+    return lComment;
 }
 
 
