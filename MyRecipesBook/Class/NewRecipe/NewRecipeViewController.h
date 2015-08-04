@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewRecipeViewController : UIViewController
+@interface NewRecipeViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
 
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITextField *recipeTitleTextfield;
-@property (strong, nonatomic) IBOutlet UISlider *difficultySlider;
-@property (strong, nonatomic) IBOutlet UILabel *dificultyLabel;
+@property (strong, nonatomic) IBOutlet UITextView *recipeDescriptiontextView;
+@property (strong, nonatomic) UIView* firstResponderView;
 
 
 

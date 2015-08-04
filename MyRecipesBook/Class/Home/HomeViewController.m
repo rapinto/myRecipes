@@ -7,12 +7,80 @@
 //
 
 #import "HomeViewController.h"
+#import "NewRecipeViewController.h"
+
+
 
 @interface HomeViewController ()
 
 @end
 
 @implementation HomeViewController
+
+
+
+#pragma mark -
+#pragma mark Object Life Cycle Methods
+
+
+
+- (id)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        [self setup];
+    }
+    
+    return self;
+}
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self)
+    {
+        [self setup];
+    }
+    
+    return self;
+}
+
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    if (self)
+    {
+        [self setup];
+    }
+    
+    return self;
+}
+
+
+
+#pragma mark -
+#pragma mark Data Management Methods
+
+
+
+- (void)setup
+{
+    UINavigationController* lMenuNavController = [[UINavigationController alloc] init];
+    
+    
+    NewRecipeViewController* lDetail = [[NewRecipeViewController alloc] initWithNibName:@"NewRecipeViewController" bundle:nil];
+    UINavigationController* lDetailNavController = [[UINavigationController alloc] initWithRootViewController:lDetail];
+    
+    
+    self.viewControllers = [NSArray arrayWithObjects:lMenuNavController, lDetailNavController, nil];
+    self.delegate = self;
+}
 
 
 

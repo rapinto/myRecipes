@@ -1,0 +1,14 @@
+//
+//  Localizable.string
+//  MyRecipesBook
+//
+//  Created by Ades on 02/08/2015.
+//  Copyright (c) 2015 Ades. All rights reserved.
+//
+
+
+
+
+"EnterTitle" = "Entrez un titre...";
+"EnterDescription" = "Entrez une description...";
+
