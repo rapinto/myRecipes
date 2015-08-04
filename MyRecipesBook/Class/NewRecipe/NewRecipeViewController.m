@@ -79,14 +79,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [self setupView];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+
+- (void)viewDidLayoutSubviews
 {
-    [super viewDidAppear:animated];
-    
+    [self setupView];
 }
 
 
@@ -149,7 +147,6 @@
 {
     UIView* lEmptyFooter = [[UIView alloc] initWithFrame:CGRectZero];
     _tableView.tableFooterView = lEmptyFooter;
-    
     
     [self updateTableHeaderViewFrame];
 }
