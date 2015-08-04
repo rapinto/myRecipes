@@ -159,14 +159,8 @@
 {
     CGSize sizeThatFitsTextView = [_recipeDescriptiontextView sizeThatFits:CGSizeMake(_recipeDescriptiontextView.frame.size.width, MAXFLOAT)];
     
-    
-    CGFloat lTextViewHeight = MAX(sizeThatFitsTextView.height, _tableView.frame.size.height - (kTextViewMarginTop + sizeThatFitsTextView.height + kTextViewMarginBottom));
-    
-    
-    _recipeDescriptiontextView.frame = CGRectMake(_recipeDescriptiontextView.frame.origin.x,
-                                                  _recipeDescriptiontextView.frame.origin.y,
-                                                  _recipeDescriptiontextView.frame.size.width,
-                                                  lTextViewHeight);
+    CGFloat lTextViewHeight = ceil(MAX(sizeThatFitsTextView.height,
+                                       _tableView.frame.size.height - (kTextViewMarginTop + kTextViewMarginBottom)));
     
     _tableView.tableHeaderView.frame = CGRectMake(0,
                                                   0,
