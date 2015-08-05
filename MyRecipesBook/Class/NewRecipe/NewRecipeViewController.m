@@ -6,6 +6,13 @@
 //  Copyright (c) 2015 Ades. All rights reserved.
 //
 
+
+
+#define kTextViewMarginTop 138
+#define kTextViewMarginBottom 27
+
+
+
 #import "NewRecipeViewController.h"
 
 @interface NewRecipeViewController ()
@@ -75,6 +82,12 @@
 }
 
 
+- (void)viewDidLayoutSubviews
+{
+    [self setupView];
+}
+
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -115,13 +128,12 @@
 
 - (void)keyboardWillHide:(NSNotification*)notification
 {
-    CGRect keyboardBounds = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSNumber *duration = [notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
     
     [self updateTableViewFrameWithAnimationDuration:duration
                                      animationCurve:curve
-                                     keyboardHeight:keyboardBounds.size.height];
+                                     keyboardHeight:0];
 }
 
 
@@ -129,6 +141,32 @@
 #pragma mark -
 #pragma mark View Update Methods
 
+
+
+- (void)setupView
+{
+    UIView* lEmptyFooter = [[UIView alloc] initWithFrame:CGRectZero];
+    _tableView.tableFooterView = lEmptyFooter;
+    
+    [self updateTableHeaderViewFrame];
+}
+
+
+- (void)updateTableHeaderViewFrame
+{
+    CGSize sizeThatFitsTextView = [_recipeDescriptiontextView sizeThatFits:CGSizeMake(_recipeDescriptiontextView.frame.size.width, MAXFLOAT)];
+    
+    CGFloat lTextViewHeight = ceil(MAX(sizeThatFitsTextView.height,
+                                       _tableView.frame.size.height - (kTextViewMarginTop + kTextViewMarginBottom)));
+    
+    _tableView.tableHeaderView.frame = CGRectMake(0,
+                                                  0,
+                                                  self.view.frame.size.width,
+                                                  kTextViewMarginTop + lTextViewHeight + kTextViewMarginBottom);
+    
+    _tableView.tableHeaderView = _tableView.tableHeaderView;
+    
+}
 
 
 - (void)updateTableViewFrameWitheyboardHeight:(float)keyboardHeight
@@ -144,7 +182,6 @@
                                    animationCurve:(NSNumber*)animationCurve
                                     keyboardHeight:(float)keyboardHeight
 {
-        // animations settings
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationBeginsFromCurrentState:YES];
         [UIView setAnimationDuration:[animationDuration doubleValue]];
@@ -155,9 +192,15 @@
                                       _tableView.frame.origin.y,
                                       _tableView.frame.size.width,
                                       self.view.frame.size.height - keyboardHeight);
-        
-        // commit animations
         [UIView commitAnimations];
+    
+    
+    NSLog(@"self frame %@", [NSValue valueWithCGRect:self.view.frame]);
+    
+    NSLog(@"next frame %@", [NSValue valueWithCGRect:CGRectMake(_tableView.frame.origin.x,
+                                                               _tableView.frame.origin.y,
+                                                               _tableView.frame.size.width,
+                                                               self.view.frame.size.height - keyboardHeight)]);
 }
 
 
@@ -209,6 +252,13 @@
     
     return YES;
 }
+
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    [self updateTableHeaderViewFrame];
+}
+
 
 
 @end
