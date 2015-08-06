@@ -25,6 +25,13 @@
 @property (nonatomic, retain) NSSet *steps;
 @property (nonatomic, retain) SubCategory *subCategories;
 @property (nonatomic, retain) NSSet *tools;
+
+
+
++ (Recipe*)createNewRecipeInContext:(NSManagedObjectContext*)context;
+
+
+
 @end
 
 @interface Recipe (CoreDataGeneratedAccessors)

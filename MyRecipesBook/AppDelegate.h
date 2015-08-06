@@ -21,5 +21,10 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 
+
++ (AppDelegate*)sharedInstance;
+
+
+
 @end
 

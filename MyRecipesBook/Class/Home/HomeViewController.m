@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "NewRecipeViewController.h"
+#import "RecipeCreatorTitleViewController.h"
 
 
 
@@ -74,7 +74,7 @@
     UINavigationController* lMenuNavController = [[UINavigationController alloc] init];
     
     
-    NewRecipeViewController* lDetail = [[NewRecipeViewController alloc] initWithNibName:@"NewRecipeViewController" bundle:nil];
+    RecipeCreatorTitleViewController* lDetail = [[RecipeCreatorTitleViewController alloc] initWithNibName:@"NewRecipeViewController" bundle:nil];
     UINavigationController* lDetailNavController = [[UINavigationController alloc] initWithRootViewController:lDetail];
     
     

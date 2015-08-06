@@ -13,13 +13,16 @@
 
 
 
-#import "NewRecipeViewController.h"
+#import "RecipeCreatorTitleViewController.h"
+#import "RecipeCreatorInteractor.h"
 
-@interface NewRecipeViewController ()
+
+
+@interface RecipeCreatorTitleViewController ()
 
 @end
 
-@implementation NewRecipeViewController
+@implementation RecipeCreatorTitleViewController
 
 
 
@@ -36,6 +39,7 @@
     if (self)
     {
         [self addNotificationsObservers];
+        [self initRecipeCreatorInteractor];
     }
     
     return self;
@@ -49,6 +53,7 @@
     if (self)
     {
         [self addNotificationsObservers];
+        [self initRecipeCreatorInteractor];
     }
     
     return self;
@@ -62,6 +67,7 @@
     if (self)
     {
         [self addNotificationsObservers];
+        [self initRecipeCreatorInteractor];
     }
     
     return self;
@@ -84,7 +90,10 @@
 
 - (void)viewDidLayoutSubviews
 {
-    [self setupView];
+    if (!_isLoaded)
+    {
+        [self setupView];
+    }
 }
 
 
@@ -114,26 +123,51 @@
 }
 
 
+- (void)initRecipeCreatorInteractor
+{
+    RecipeCreatorInteractor* lNewRecipeInteractor = [[RecipeCreatorInteractor alloc] init];
+    _recipeCreatorInteractor = lNewRecipeInteractor;
+}
+
+
 - (void)keyboardWillShow:(NSNotification*)notification
 {
     CGRect keyboardBounds = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSNumber *duration = [notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
-        
-    [self updateTableViewFrameWithAnimationDuration:duration
-                                     animationCurve:curve
-                                     keyboardHeight:keyboardBounds.size.height];
+    keyboardBounds = [self.view convertRect:keyboardBounds toView:nil];
+    
+    [self.view layoutIfNeeded];
+    _tableViewBottomContraint.constant = keyboardBounds.size.height;
+    
+    [UIView animateWithDuration:[duration doubleValue]
+                          delay:0
+                        options:[curve integerValue]
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:NULL];
 }
 
 
 - (void)keyboardWillHide:(NSNotification*)notification
 {
+    CGRect keyboardBounds = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSNumber *duration = [notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    keyboardBounds = [self.view convertRect:keyboardBounds toView:nil];
     
-    [self updateTableViewFrameWithAnimationDuration:duration
-                                     animationCurve:curve
-                                     keyboardHeight:0];
+    
+    [self.view layoutIfNeeded];
+    _tableViewBottomContraint.constant = 0.0f;
+    
+    [UIView animateWithDuration:[duration doubleValue]
+                          delay:0
+                        options:[curve integerValue]
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:NULL];
 }
 
 
@@ -145,10 +179,22 @@
 
 - (void)setupView
 {
+    UIColor *color = [UIColor lightGrayColor];
+    _recipeTitleTextfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"EnterTitle", @"")
+                                                                                  attributes:@{NSForegroundColorAttributeName: color}];
+    
+    
     UIView* lEmptyFooter = [[UIView alloc] initWithFrame:CGRectZero];
     _tableView.tableFooterView = lEmptyFooter;
     
     [self updateTableHeaderViewFrame];
+    
+    _rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Next", @"")
+                                                           style:UIBarButtonItemStylePlain
+                                                          target:self
+                                                          action:@selector(onNextButtonPressed:)];
+    _rightBarButtonItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem = _rightBarButtonItem;
 }
 
 
@@ -165,42 +211,35 @@
                                                   kTextViewMarginTop + lTextViewHeight + kTextViewMarginBottom);
     
     _tableView.tableHeaderView = _tableView.tableHeaderView;
-    
 }
 
 
-- (void)updateTableViewFrameWitheyboardHeight:(float)keyboardHeight
+- (void)updateRightBarButtonItemForTitle:(NSString*)currentRecipeTitle
 {
-    _tableView.frame = CGRectMake(_tableView.frame.origin.x,
-                                  _tableView.frame.origin.y,
-                                  _tableView.frame.size.width,
-                                  self.view.frame.size.height - keyboardHeight);
+    if ([currentRecipeTitle length] > 0)
+    {
+        _rightBarButtonItem.enabled = YES;
+    }
+    else
+    {
+        _rightBarButtonItem.enabled = NO;
+    }
 }
 
 
-- (void)updateTableViewFrameWithAnimationDuration:(NSNumber*)animationDuration
-                                   animationCurve:(NSNumber*)animationCurve
-                                    keyboardHeight:(float)keyboardHeight
+
+#pragma mark -
+#pragma mark User Interaction Methods
+
+
+
+- (void)onNextButtonPressed:(id)sender
 {
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationBeginsFromCurrentState:YES];
-        [UIView setAnimationDuration:[animationDuration doubleValue]];
-        [UIView setAnimationCurve:[animationCurve intValue]];
-        
-        
-        _tableView.frame = CGRectMake(_tableView.frame.origin.x,
-                                      _tableView.frame.origin.y,
-                                      _tableView.frame.size.width,
-                                      self.view.frame.size.height - keyboardHeight);
-        [UIView commitAnimations];
+    _recipeCreatorInteractor.recipeTitle = _recipeTitleTextfield.text;
+    _recipeCreatorInteractor.recipeDefinition = _recipeDescriptiontextView.text;
     
-    
-    NSLog(@"self frame %@", [NSValue valueWithCGRect:self.view.frame]);
-    
-    NSLog(@"next frame %@", [NSValue valueWithCGRect:CGRectMake(_tableView.frame.origin.x,
-                                                               _tableView.frame.origin.y,
-                                                               _tableView.frame.size.width,
-                                                               self.view.frame.size.height - keyboardHeight)]);
+    [_recipeTitleTextfield resignFirstResponder];
+    [_recipeDescriptiontextView resignFirstResponder];
 }
 
 
@@ -210,8 +249,20 @@
 
 
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString* lNewString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    [self updateRightBarButtonItemForTitle:lNewString];
+    
+    return YES;
+}
+
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    textField.attributedPlaceholder = nil;
+    
     _firstResponderView = textField;
     
     return YES;
@@ -220,10 +271,23 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
+    UIColor *color = [UIColor lightGrayColor];
+    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"EnterTitle", @"") attributes:@{NSForegroundColorAttributeName: color}];
+    
     if (_firstResponderView == textField)
     {
         _firstResponderView = nil;
     }
+    
+    return YES;
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [_recipeDescriptiontextView becomeFirstResponder];
+    
+    _recipeCreatorInteractor.recipeTitle = textField.text;
     
     return YES;
 }
@@ -249,6 +313,10 @@
     {
         _firstResponderView = nil;
     }
+    
+    
+    _recipeCreatorInteractor.recipeDefinition = textView.text;
+    
     
     return YES;
 }

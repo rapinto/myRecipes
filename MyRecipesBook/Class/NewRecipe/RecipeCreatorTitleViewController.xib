@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewRecipeViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeCreatorTitleViewController">
             <connections>
                 <outlet property="recipeDescriptiontextView" destination="yqc-DL-7cB" id="gfl-vG-6bX"/>
                 <outlet property="recipeTitleTextfield" destination="mfz-H9-BkK" id="kDY-ZV-dYo"/>
                 <outlet property="tableView" destination="C7b-Ki-tVU" id="7FG-gA-8uA"/>
+                <outlet property="tableViewBottomContraint" destination="v1a-EC-ZGw" id="cI9-hu-Ywn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,18 +25,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EnterTitle" borderStyle="roundedRect" placeholder="titre de la recette" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfz-H9-BkK">
-                                <rect key="frame" x="22" y="86" width="276" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="zHb-v9-udZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="-1" id="qeW-JY-zlR"/>
-                                </connections>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" scrollEnabled="NO" text="EnterDescription" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-DL-7cB">
                                 <rect key="frame" x="22" y="138" width="276" height="403"/>
                                 <color key="backgroundColor" red="0.39745998519999998" green="0.69016996340000003" blue="0.27779703789999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,6 +34,18 @@
                                     <outlet property="delegate" destination="-1" id="66y-nm-NGa"/>
                                 </connections>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfz-H9-BkK">
+                                <rect key="frame" x="22" y="86" width="276" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zHb-v9-udZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="-1" id="qeW-JY-zlR"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.18008828320607728" blue="0.11759935387006082" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

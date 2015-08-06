@@ -19,6 +19,24 @@
 @implementation AppDelegate
 
 
+
+#pragma mark -
+#pragma mark Singleton Methods
+
+
+
++ (AppDelegate*)sharedInstance
+{
+    return (AppDelegate*)[UIApplication sharedApplication].delegate;
+}
+
+
+
+#pragma mark -
+#pragma mark App Life Cycle Methods
+
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     

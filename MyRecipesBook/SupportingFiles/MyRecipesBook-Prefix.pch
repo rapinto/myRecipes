@@ -16,6 +16,8 @@
 
 #import <CoreData/CoreData.h>
 #import "Constants.h"
+#import <threadedManagedContext/ThreadedContextManager.h>
+#import "AppDelegate.h"
 
 
 
