@@ -1,5 +1,5 @@
 //
-//  NewRecipeViewController.m
+//  RecipeCreatorTitleViewController.m
 //  MyRecipesBook
 //
 //  Created by Ades on 02/08/2015.
@@ -92,6 +92,7 @@
 {
     if (!_isLoaded)
     {
+        _isLoaded = YES;
         [self setupView];
     }
 }
@@ -179,9 +180,13 @@
 
 - (void)setupView
 {
-    UIColor *color = [UIColor lightGrayColor];
-    _recipeTitleTextfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"EnterTitle", @"")
-                                                                                  attributes:@{NSForegroundColorAttributeName: color}];
+    self.title = NSLocalizedString(@"NewRecipe1/5", @"");
+    
+    _recipeTitleTextfield.text = NSLocalizedString(@"EnterTitle", @"");
+    _recipeTitleTextfield.textColor = [UIColor lightGrayColor];
+    
+    _recipeDescriptiontextView.text = NSLocalizedString(@"EnterDescription", @"");
+    _recipeDescriptiontextView.textColor = [UIColor lightGrayColor];
     
     
     UIView* lEmptyFooter = [[UIView alloc] initWithFrame:CGRectZero];
@@ -253,6 +258,11 @@
 {
     NSString* lNewString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
+    if (![textField.text isEqualToString:NSLocalizedString(@"EnterTitle", @"")])
+    {
+        _recipeCreatorInteractor.recipeTitle = textField.text;
+    }
+    
     [self updateRightBarButtonItemForTitle:lNewString];
     
     return YES;
@@ -261,7 +271,11 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    textField.attributedPlaceholder = nil;
+    if ([textField.text isEqualToString:NSLocalizedString(@"EnterTitle", @"")])
+    {
+        textField.text = nil;
+        textField.textColor = [UIColor blackColor];
+    }
     
     _firstResponderView = textField;
     
@@ -271,8 +285,15 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    UIColor *color = [UIColor lightGrayColor];
-    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"EnterTitle", @"") attributes:@{NSForegroundColorAttributeName: color}];
+    if ([textField.text length] == 0)
+    {
+        textField.text = NSLocalizedString(@"EnterTitle", @"");
+        textField.textColor = [UIColor lightGrayColor];
+    }
+    else if (![textField.text isEqualToString:NSLocalizedString(@"EnterTitle", @"")])
+    {
+        _recipeCreatorInteractor.recipeTitle = textField.text;
+    }
     
     if (_firstResponderView == textField)
     {
@@ -283,11 +304,19 @@
 }
 
 
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    _recipeCreatorInteractor.recipeTitle = nil;
+    
+    [self updateRightBarButtonItemForTitle:nil];
+    
+    return YES;
+}
+
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [_recipeDescriptiontextView becomeFirstResponder];
-    
-    _recipeCreatorInteractor.recipeTitle = textField.text;
     
     return YES;
 }
@@ -301,6 +330,12 @@
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
+    if ([textView.text isEqualToString:NSLocalizedString(@"EnterDescription", @"")])
+    {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    
     _firstResponderView = textView;
     
     return YES;
@@ -309,6 +344,13 @@
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView
 {
+    if ([textView.text length] == 0)
+    {
+        textView.text = NSLocalizedString(@"EnterDescription", @"");
+        textView.textColor = [UIColor lightGrayColor];
+    }
+    
+    
     if (_firstResponderView == textView)
     {
         _firstResponderView = nil;
