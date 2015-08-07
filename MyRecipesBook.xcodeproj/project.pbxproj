@@ -177,9 +177,9 @@
 		796DBF711B6E050100A58967 /* MyRecipesBook */ = {
 			isa = PBXGroup;
 			children = (
-				644DE3C11B70D2260037DE5F /* NewRecipe */,
 				796DBF761B6E050100A58967 /* AppDelegate.h */,
 				796DBF771B6E050100A58967 /* AppDelegate.m */,
+				644DE3C11B70D2260037DE5F /* NewRecipe */,
 				64F9917B1B6F8D4600F0DC06 /* Home */,
 				796DBFA11B6E052700A58967 /* DetailViewController.h */,
 				796DBFA01B6E052700A58967 /* DetailViewController.m */,

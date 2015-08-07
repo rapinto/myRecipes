@@ -9,6 +9,31 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Pods-AppUtils.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Pods-UI-Localized-Stretchable.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>Pods-Utils.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Pods-iRate.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>Pods-threadedManagedContext.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -32,6 +57,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>21EABCA0E2F2C399A8621CB2733A1648</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>28398F548AD08D57EFFA62DE4D427DFD</key>
 		<dict>
 			<key>primary</key>
@@ -47,12 +77,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>51D1D5D941980B41E284DB527859897D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>62DB2A8B874C3588087393A3C3BEB562</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8B090755233C44E8E118A8DA48015C08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8EB4966BF7F14C9BC691D81A38AAC850</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A60620CE80CA45F58B939B5013B94775</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B3AD0E739F4706CA1BF7864A8DBE09BA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D20B09E39F16CE41D27F4E58945367E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,5 +1,5 @@
 //
-//  NewRecipeViewController.h
+//  RecipeCreatorTitleViewController.h
 //  MyRecipesBook
 //
 //  Created by Ades on 02/08/2015.

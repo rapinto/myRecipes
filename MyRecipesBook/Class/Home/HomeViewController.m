@@ -74,7 +74,7 @@
     UINavigationController* lMenuNavController = [[UINavigationController alloc] init];
     
     
-    RecipeCreatorTitleViewController* lDetail = [[RecipeCreatorTitleViewController alloc] initWithNibName:@"NewRecipeViewController" bundle:nil];
+    RecipeCreatorTitleViewController* lDetail = [[RecipeCreatorTitleViewController alloc] initWithNibName:@"RecipeCreatorTitleViewController" bundle:nil];
     UINavigationController* lDetailNavController = [[UINavigationController alloc] initWithRootViewController:lDetail];
     
     
