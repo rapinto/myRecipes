@@ -15,6 +15,7 @@
 
 #import "RecipeCreatorTitleViewController.h"
 #import "RecipeCreatorInteractor.h"
+#import "RecipeCategoryesViewController.h"
 
 
 
@@ -245,6 +246,9 @@
     
     [_recipeTitleTextfield resignFirstResponder];
     [_recipeDescriptiontextView resignFirstResponder];
+    
+    RecipeCategoryesViewController* lRecipeCategoriesViewController = [[RecipeCategoryesViewController alloc] initWithNibName:@"RecipeCategoryesViewController" bundle:nil recipeCreatorInteractor:_recipeCreatorInteractor];
+    [self.navigationController pushViewController:lRecipeCategoriesViewController animated:YES];
 }
 
 
