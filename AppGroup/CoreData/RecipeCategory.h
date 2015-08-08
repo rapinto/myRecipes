@@ -9,14 +9,29 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Recipe, SubCategory;
+@class Recipe;
 
 @interface RecipeCategory : NSManagedObject
 
 @property (nonatomic, retain) NSString * icon;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *recipe;
-@property (nonatomic, retain) NSSet *subCategories;
+@property (nonatomic, retain) NSNumber* isDefaultCategory;
+
+
+// Core Data Main Methods
++ (RecipeCategory*)insertOrUpdateIngredientWithDictionary:(NSDictionary*)dictionary
+                                                inContext:(NSManagedObjectContext*)context;
++ (RecipeCategory*)searchRecipeCategoryWithName:(NSString*)name
+                                      onContext:(NSManagedObjectContext*)context;
++ (void)parseRecipeCategoriesList:(NSArray*)categoriesList
+                        onContext:(NSManagedObjectContext*)context
+                          success:(void (^)(NSArray* recipesCategories))success;
+
+
+// Init Methods
++ (NSArray*)defaultCategoriesDictionaries;
+
 @end
 
 @interface RecipeCategory (CoreDataGeneratedAccessors)
@@ -25,10 +40,5 @@
 - (void)removeRecipeObject:(Recipe *)value;
 - (void)addRecipe:(NSSet *)values;
 - (void)removeRecipe:(NSSet *)values;
-
-- (void)addSubCategoriesObject:(SubCategory *)value;
-- (void)removeSubCategoriesObject:(SubCategory *)value;
-- (void)addSubCategories:(NSSet *)values;
-- (void)removeSubCategories:(NSSet *)values;
 
 @end

@@ -15,13 +15,16 @@
 @class RecipeCreatorInteractor;
 
 
+ 
+@interface RecipeCategoryesViewController : UIViewController <UITextFieldDelegate>
 
-@interface RecipeCategoryesViewController : UIViewController
 
 
-
+@property (nonatomic) BOOL isLoaded;
 @property (strong, nonatomic) RecipeCreatorInteractor* recipeCreatorInteractor;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *rightBarButtonItem;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomConstraint;
 
 
 

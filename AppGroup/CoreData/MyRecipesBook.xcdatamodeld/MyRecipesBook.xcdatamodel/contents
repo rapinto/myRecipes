@@ -22,14 +22,13 @@
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="RecipeCategory" inverseName="recipes" inverseEntity="RecipeCategory" syncable="YES"/>
         <relationship name="ingredientsQuantites" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="IngredientQuantity" inverseName="recipe" inverseEntity="IngredientQuantity" syncable="YES"/>
         <relationship name="steps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Step" inverseName="recipe" inverseEntity="Step" syncable="YES"/>
-        <relationship name="subCategories" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="SubCategory" inverseName="recipes" inverseEntity="SubCategory" syncable="YES"/>
         <relationship name="tools" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Tool" inverseName="recipes" inverseEntity="Tool" syncable="YES"/>
     </entity>
     <entity name="RecipeCategory" representedClassName="RecipeCategory" syncable="YES">
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDefaultCategory" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Recipe" inverseName="categories" inverseEntity="Recipe" syncable="YES"/>
-        <relationship name="subCategories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SubCategory" inverseName="category" inverseEntity="SubCategory" syncable="YES"/>
     </entity>
     <entity name="Step" representedClassName="Step" syncable="YES">
         <attribute name="definition" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,24 +36,18 @@
         <attribute name="time" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="steps" inverseEntity="Recipe" syncable="YES"/>
     </entity>
-    <entity name="SubCategory" representedClassName="SubCategory" syncable="YES">
-        <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="RecipeCategory" inverseName="subCategories" inverseEntity="RecipeCategory" syncable="YES"/>
-        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Recipe" inverseName="subCategories" inverseEntity="Recipe" syncable="YES"/>
-    </entity>
     <entity name="Tool" representedClassName="Tool" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="tools" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <fetchRequest name="getIngredientByName" entity="Ingredient" predicateString="name == $name"/>
+    <fetchRequest name="getRecipeCategoryByName" entity="RecipeCategory" predicateString="name == $name"/>
     <elements>
         <element name="Ingredient" positionX="0" positionY="0" width="128" height="90"/>
         <element name="IngredientQuantity" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Recipe" positionX="0" positionY="0" width="128" height="225"/>
+        <element name="Recipe" positionX="0" positionY="0" width="128" height="210"/>
         <element name="RecipeCategory" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Step" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="SubCategory" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Tool" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>

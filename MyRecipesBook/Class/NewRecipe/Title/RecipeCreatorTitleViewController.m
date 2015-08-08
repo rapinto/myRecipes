@@ -86,6 +86,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.title = NSLocalizedString(@"NewRecipe1/5", @"");
 }
 
 
@@ -140,7 +142,7 @@
     keyboardBounds = [self.view convertRect:keyboardBounds toView:nil];
     
     [self.view layoutIfNeeded];
-    _tableViewBottomContraint.constant = keyboardBounds.size.height;
+    _tableViewBottomConstraint.constant = keyboardBounds.size.height;
     
     [UIView animateWithDuration:[duration doubleValue]
                           delay:0
@@ -161,7 +163,7 @@
     
     
     [self.view layoutIfNeeded];
-    _tableViewBottomContraint.constant = 0.0f;
+    _tableViewBottomConstraint.constant = 0.0f;
     
     [UIView animateWithDuration:[duration doubleValue]
                           delay:0
@@ -181,8 +183,6 @@
 
 - (void)setupView
 {
-    self.title = NSLocalizedString(@"NewRecipe1/5", @"");
-    
     _recipeTitleTextfield.text = NSLocalizedString(@"EnterTitle", @"");
     _recipeTitleTextfield.textColor = [UIColor lightGrayColor];
     

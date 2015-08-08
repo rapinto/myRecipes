@@ -13,6 +13,7 @@
 
 #define kname @"name"
 #define kpicture @"picture"
+#define kDefaultCategory @"defaultCategory"
 
 
 #endif

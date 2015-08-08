@@ -15,6 +15,7 @@
 		6474A8441B74D01A004B617F /* RecipeCategoryesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6474A8421B74D01A004B617F /* RecipeCategoryesViewController.xib */; };
 		64F991841B6F8DB400F0DC06 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F991821B6F8DB400F0DC06 /* HomeViewController.m */; };
 		64F991851B6F8DB400F0DC06 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F991831B6F8DB400F0DC06 /* HomeViewController.xib */; };
+		7961C3491B75FE270005B477 /* CoreDataInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7961C3481B75FE270005B477 /* CoreDataInitializer.m */; };
 		796DBF781B6E050100A58967 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DBF771B6E050100A58967 /* AppDelegate.m */; };
 		796DBF861B6E050100A58967 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 796DBF851B6E050100A58967 /* Images.xcassets */; };
 		796DBF891B6E050100A58967 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796DBF871B6E050100A58967 /* LaunchScreen.xib */; };
@@ -26,7 +27,6 @@
 		79DF792D1B6EB0AC00923545 /* MyRecipesBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79DF79201B6EB0AC00923545 /* MyRecipesBook.xcdatamodeld */; };
 		79DF792E1B6EB0AC00923545 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DF79231B6EB0AC00923545 /* Recipe.m */; };
 		79DF792F1B6EB0AC00923545 /* Step.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DF79251B6EB0AC00923545 /* Step.m */; };
-		79DF79301B6EB0AC00923545 /* SubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DF79271B6EB0AC00923545 /* SubCategory.m */; };
 		79DF79311B6EB0AC00923545 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DF79291B6EB0AC00923545 /* Tool.m */; };
 		79DF793C1B6EB32500923545 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DF793B1B6EB32500923545 /* Default-568h@2x.png */; };
 		79DF79421B6EB41200923545 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DF793F1B6EB41200923545 /* main.m */; };
@@ -60,6 +60,8 @@
 		64F991811B6F8DB400F0DC06 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		64F991821B6F8DB400F0DC06 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		64F991831B6F8DB400F0DC06 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		7961C3471B75FE270005B477 /* CoreDataInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataInitializer.h; sourceTree = "<group>"; };
+		7961C3481B75FE270005B477 /* CoreDataInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataInitializer.m; sourceTree = "<group>"; };
 		796DBF6F1B6E050100A58967 /* MyRecipesBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipesBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796DBF761B6E050100A58967 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		796DBF771B6E050100A58967 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,8 +83,6 @@
 		79DF79231B6EB0AC00923545 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		79DF79241B6EB0AC00923545 /* Step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Step.h; sourceTree = "<group>"; };
 		79DF79251B6EB0AC00923545 /* Step.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Step.m; sourceTree = "<group>"; };
-		79DF79261B6EB0AC00923545 /* SubCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategory.h; sourceTree = "<group>"; };
-		79DF79271B6EB0AC00923545 /* SubCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategory.m; sourceTree = "<group>"; };
 		79DF79281B6EB0AC00923545 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
 		79DF79291B6EB0AC00923545 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
 		79DF793B1B6EB32500923545 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -254,10 +254,10 @@
 				79DF79231B6EB0AC00923545 /* Recipe.m */,
 				79DF79241B6EB0AC00923545 /* Step.h */,
 				79DF79251B6EB0AC00923545 /* Step.m */,
-				79DF79261B6EB0AC00923545 /* SubCategory.h */,
-				79DF79271B6EB0AC00923545 /* SubCategory.m */,
 				79DF79281B6EB0AC00923545 /* Tool.h */,
 				79DF79291B6EB0AC00923545 /* Tool.m */,
+				7961C3471B75FE270005B477 /* CoreDataInitializer.h */,
+				7961C3481B75FE270005B477 /* CoreDataInitializer.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -439,8 +439,8 @@
 				64F991841B6F8DB400F0DC06 /* HomeViewController.m in Sources */,
 				79DF792B1B6EB0AC00923545 /* Ingredient.m in Sources */,
 				79DF792D1B6EB0AC00923545 /* MyRecipesBook.xcdatamodeld in Sources */,
+				7961C3491B75FE270005B477 /* CoreDataInitializer.m in Sources */,
 				6474A83E1B74CF59004B617F /* RecipeCreatorTitleViewController.m in Sources */,
-				79DF79301B6EB0AC00923545 /* SubCategory.m in Sources */,
 				79DF792F1B6EB0AC00923545 /* Step.m in Sources */,
 				79DF792A1B6EB0AC00923545 /* RecipeCategory.m in Sources */,
 				796DBF781B6E050100A58967 /* AppDelegate.m in Sources */,

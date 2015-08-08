@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class IngredientQuantity, NSManagedObject, Step, SubCategory, Tool;
+@class IngredientQuantity, NSManagedObject, Step, Tool;
 
 @interface Recipe : NSManagedObject
 
@@ -23,7 +23,6 @@
 @property (nonatomic, retain) NSSet *categories;
 @property (nonatomic, retain) NSSet *ingredientsQuantites;
 @property (nonatomic, retain) NSSet *steps;
-@property (nonatomic, retain) SubCategory *subCategories;
 @property (nonatomic, retain) NSSet *tools;
 
 

@@ -9,7 +9,6 @@
 #import "Recipe.h"
 #import "IngredientQuantity.h"
 #import "Step.h"
-#import "SubCategory.h"
 #import "Tool.h"
 
 
@@ -25,7 +24,6 @@
 @dynamic categories;
 @dynamic ingredientsQuantites;
 @dynamic steps;
-@dynamic subCategories;
 @dynamic tools;
 
 
